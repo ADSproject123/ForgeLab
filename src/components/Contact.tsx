@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { Mail, MapPin, Clock, CheckCircle, type LucideIcon } from "lucide-react";
 
 type FormState = {
   name: string;
@@ -80,14 +81,18 @@ export function Contact() {
 
             {/* Contact details */}
             <div className="space-y-4">
-              {[
-                { label: "Email", value: "hello@forgelab.cam", icon: "✉" },
-                { label: "Location", value: "Remote — Worldwide", icon: "🌍" },
-                { label: "Response time", value: "Within 24 hours", icon: "⚡" },
-              ].map((item) => (
+              {(
+                [
+                  { label: "Email", value: "hello@forgelab.cam", icon: Mail },
+                  { label: "Location", value: "Remote — Worldwide", icon: MapPin },
+                  { label: "Response time", value: "Within 24 hours", icon: Clock },
+                ] as { label: string; value: string; icon: LucideIcon }[]
+              ).map((item) => {
+                const Icon = item.icon;
+                return (
                 <div key={item.label} className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.07] flex items-center justify-center text-base flex-shrink-0">
-                    {item.icon}
+                  <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-white/[0.07] flex items-center justify-center flex-shrink-0 text-slate-400">
+                    <Icon size={17} strokeWidth={1.75} />
                   </div>
                   <div>
                     <div className="text-xs text-slate-600 uppercase tracking-wider mb-0.5">
@@ -98,7 +103,8 @@ export function Contact() {
                     </div>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </motion.div>
 
@@ -116,8 +122,8 @@ export function Contact() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex flex-col items-center text-center py-8 gap-4"
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-3xl">
-                    ✓
+                  <div className="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+                    <CheckCircle size={32} strokeWidth={1.5} />
                   </div>
                   <h3 className="text-white text-xl font-bold">Message sent!</h3>
                   <p className="text-slate-400 text-sm">

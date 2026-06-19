@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Brain, BotMessageSquare, Globe, Smartphone, Bot, type LucideIcon } from "lucide-react";
 
 interface Service {
-  icon: string;
+  icon: LucideIcon;
   title: string;
   description: string;
   stack: string[];
@@ -12,7 +13,7 @@ interface Service {
 
 const services: Service[] = [
   {
-    icon: "🧠",
+    icon: Brain,
     title: "AI & Machine Learning Systems",
     description:
       "End-to-end ML pipelines — from data ingestion and model training to production deployment and monitoring. We build systems that learn and improve over time.",
@@ -20,7 +21,7 @@ const services: Service[] = [
     accent: "cyan",
   },
   {
-    icon: "⚡",
+    icon: BotMessageSquare,
     title: "LLM Fine-tuning & AI Agents",
     description:
       "Custom large language model fine-tuning using PEFT, LoRA, and QLoRA. Autonomous AI agents with memory, tool use, and long-horizon reasoning.",
@@ -28,7 +29,7 @@ const services: Service[] = [
     accent: "violet",
   },
   {
-    icon: "🌐",
+    icon: Globe,
     title: "Full Stack Web Applications",
     description:
       "High-performance web products from API design to pixel-perfect UI. We ship fast, scale effortlessly, and never compromise on quality.",
@@ -36,7 +37,7 @@ const services: Service[] = [
     accent: "blue",
   },
   {
-    icon: "📱",
+    icon: Smartphone,
     title: "Mobile App Development",
     description:
       "Cross-platform and native iOS/Android apps with AI capabilities built in from day one. Performance-optimized, delightful to use.",
@@ -44,7 +45,7 @@ const services: Service[] = [
     accent: "emerald",
   },
   {
-    icon: "🤖",
+    icon: Bot,
     title: "Robotics & Automation Systems",
     description:
       "Intelligent robotics software, sensor fusion, computer vision, and autonomous control systems for physical-world automation.",
@@ -112,6 +113,7 @@ export function Services() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, i) => {
             const colors = accentMap[service.accent];
+            const Icon = service.icon;
             return (
               <motion.div
                 key={service.title}
@@ -138,9 +140,9 @@ export function Services() {
                 <div className="relative z-10">
                   {/* Icon */}
                   <div
-                    className={`inline-flex w-11 h-11 rounded-xl border items-center justify-center text-xl mb-5 ${colors.icon}`}
+                    className={`inline-flex w-11 h-11 rounded-xl border items-center justify-center mb-5 ${colors.icon}`}
                   >
-                    {service.icon}
+                    <Icon size={20} strokeWidth={1.5} />
                   </div>
 
                   {/* Title */}

@@ -1,31 +1,40 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Target, Brain, Zap, Microscope, type LucideIcon } from "lucide-react";
 
-const reasons = [
+interface Reason {
+  icon: LucideIcon;
+  title: string;
+  body: string;
+  stat: string;
+  color: string;
+}
+
+const reasons: Reason[] = [
   {
-    icon: "🎯",
+    icon: Target,
     title: "Engineering-First Mindset",
     body: "We don't paper over complexity with abstractions. We understand the system at every layer — from model weights to database indexes — and we build accordingly.",
     stat: "Zero shortcuts",
     color: "cyan",
   },
   {
-    icon: "🧠",
+    icon: Brain,
     title: "AI-Native Development",
     body: "We don't bolt AI onto existing products as an afterthought. Intelligence is designed into architecture from day one — in every API, data model, and UX decision.",
     stat: "AI from the ground up",
     color: "violet",
   },
   {
-    icon: "⚡",
+    icon: Zap,
     title: "Prototype Speed, Production Quality",
     body: "We move at startup speed without sacrificing engineering rigor. You get working prototypes in days and production-grade systems in weeks, not months.",
     stat: "10x faster shipping",
     color: "blue",
   },
   {
-    icon: "🔬",
+    icon: Microscope,
     title: "Deep Technical Expertise",
     body: "From low-level CUDA kernels to fine-tuning frontier models — our team has rare depth across the full AI/ML and systems engineering stack.",
     stat: "Research-grade depth",
@@ -36,25 +45,25 @@ const reasons = [
 const colorMap: Record<string, { border: string; icon: string; stat: string; glow: string }> = {
   cyan: {
     border: "hover:border-cyan-500/25",
-    icon: "text-2xl",
+    icon: "text-cyan-400",
     stat: "text-cyan-400",
     glow: "group-hover:shadow-[inset_0_0_40px_rgba(6,182,212,0.05)]",
   },
   violet: {
     border: "hover:border-violet-500/25",
-    icon: "text-2xl",
+    icon: "text-violet-400",
     stat: "text-violet-400",
     glow: "group-hover:shadow-[inset_0_0_40px_rgba(139,92,246,0.05)]",
   },
   blue: {
     border: "hover:border-blue-500/25",
-    icon: "text-2xl",
+    icon: "text-blue-400",
     stat: "text-blue-400",
     glow: "group-hover:shadow-[inset_0_0_40px_rgba(59,130,246,0.05)]",
   },
   emerald: {
     border: "hover:border-emerald-500/25",
-    icon: "text-2xl",
+    icon: "text-emerald-400",
     stat: "text-emerald-400",
     glow: "group-hover:shadow-[inset_0_0_40px_rgba(52,211,153,0.05)]",
   },
@@ -97,6 +106,7 @@ export function WhyForgelab() {
         <div className="grid md:grid-cols-2 gap-4 mb-16">
           {reasons.map((r, i) => {
             const c = colorMap[r.color];
+            const Icon = r.icon;
             return (
               <motion.div
                 key={r.title}
@@ -110,7 +120,9 @@ export function WhyForgelab() {
                 }}
                 className={`group glass-card rounded-2xl p-8 transition-all duration-300 ${c.border} ${c.glow}`}
               >
-                <div className="text-3xl mb-5">{r.icon}</div>
+                <div className={`mb-5 ${c.icon}`}>
+                  <Icon size={28} strokeWidth={1.5} />
+                </div>
                 <h3 className="font-bold text-white text-xl mb-3">{r.title}</h3>
                 <p className="text-slate-400 leading-relaxed mb-6 text-sm">{r.body}</p>
                 <div
