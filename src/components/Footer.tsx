@@ -1,16 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
-
-function ForgeLogo() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="28" height="28" rx="7" fill="#06b6d4" />
-      <path d="M8 8h12v3H11.5v3H19v3h-7.5v6H8V8z" fill="#020204" />
-    </svg>
-  );
-}
+import Image from "next/image";
 
 function IconGitHub({ size = 16 }: { size?: number }) {
   return (
@@ -43,43 +34,39 @@ const footerLinks = {
     "Web Applications",
     "Mobile Apps",
     "Robotics",
+    "Cloud Infrastructure",
   ],
-  Company: ["About", "Projects", "Process", "Stack"],
-  Contact: ["hello@forgelab.cam", "Start a Project", "Partnerships"],
+  Company: ["About", "Case Studies", "Process", "Tech Stack"],
+  Resources: ["hello@forgelab.cam", "Start a Project", "Partnerships"],
 };
 
 const socialLinks = [
-  { label: "GitHub",     href: "#", Icon: IconGitHub },
-  { label: "LinkedIn",   href: "#", Icon: IconLinkedIn },
+  { label: "GitHub",      href: "#", Icon: IconGitHub },
+  { label: "LinkedIn",    href: "#", Icon: IconLinkedIn },
   { label: "X / Twitter", href: "#", Icon: IconX },
 ];
 
 export function Footer() {
   return (
-    <footer className="relative bg-[#020204] border-t border-white/[0.06]">
-      {/* Top gradient rule */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
-
+    <footer className="bg-slate-900 text-white">
       <div className="container-forge py-16">
-        {/* Main footer grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 mb-16"
-        >
-          {/* Brand */}
+        {/* Main grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 mb-14">
+          {/* Brand column */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5 mb-4">
-              <ForgeLogo />
-              <span className="font-semibold text-white tracking-tight">
-                ForgeLab
-              </span>
+            <Link href="/" className="inline-block mb-5">
+              <Image
+                src="/logo/logo.png"
+                alt="ForgeLab"
+                width={140}
+                height={32}
+                className="h-8 w-auto object-contain"
+              />
             </Link>
-            <p className="text-slate-500 text-sm leading-relaxed mb-6">
-              Elite engineering lab building AI systems, intelligent
-              applications, and high-performance software.
+            <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs">
+              Elite engineering studio delivering AI systems, intelligent
+              applications, and high-performance software for teams that
+              refuse to settle for ordinary.
             </p>
             {/* Socials */}
             <div className="flex gap-3">
@@ -88,7 +75,7 @@ export function Footer() {
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/[0.07] flex items-center justify-center text-slate-400 hover:text-white hover:border-white/15 hover:bg-white/[0.07] transition-all duration-200"
+                  className="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 hover:bg-slate-700 transition-all duration-200"
                 >
                   <Icon size={15} />
                 </a>
@@ -99,7 +86,7 @@ export function Footer() {
           {/* Link groups */}
           {Object.entries(footerLinks).map(([group, links]) => (
             <div key={group}>
-              <div className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-4">
+              <div className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-5">
                 {group}
               </div>
               <ul className="space-y-3">
@@ -116,32 +103,26 @@ export function Footer() {
               </ul>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Bottom bar */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/[0.05]"
-        >
-          <p className="text-slate-600 text-sm">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-slate-800">
+          <p className="text-slate-500 text-sm">
             © {new Date().getFullYear()} ForgeLab. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a
               href="https://forgelab.cam"
-              className="text-sm text-slate-600 hover:text-slate-400 transition-colors font-mono"
+              className="text-sm text-slate-500 hover:text-slate-300 transition-colors font-mono"
             >
               forgelab.cam
             </a>
-            <div className="flex items-center gap-1.5 text-xs text-slate-700">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              Systems operational
+            <div className="flex items-center gap-1.5 text-xs text-slate-600">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+              All systems operational
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );

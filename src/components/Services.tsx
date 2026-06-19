@@ -1,118 +1,99 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Brain, BotMessageSquare, Globe, Smartphone, Bot, type LucideIcon } from "lucide-react";
+import { Brain, BotMessageSquare, Globe, Smartphone, Bot, Cpu, type LucideIcon } from "lucide-react";
 
 interface Service {
   icon: LucideIcon;
   title: string;
   description: string;
-  stack: string[];
-  accent: string;
+  highlights: string[];
+  color: string;
+  lightBg: string;
 }
 
 const services: Service[] = [
   {
     icon: Brain,
-    title: "AI & Machine Learning Systems",
+    title: "AI & Machine Learning",
     description:
-      "End-to-end ML pipelines — from data ingestion and model training to production deployment and monitoring. We build systems that learn and improve over time.",
-    stack: ["Python", "PyTorch", "TensorFlow", "FastAPI", "MLflow", "CUDA"],
-    accent: "cyan",
+      "End-to-end ML pipelines from data ingestion and model training to production deployment and continuous monitoring. We build systems that learn and improve autonomously.",
+    highlights: ["Custom model training", "MLOps & monitoring", "Feature engineering"],
+    color: "text-green-700",
+    lightBg: "bg-green-50",
   },
   {
     icon: BotMessageSquare,
-    title: "LLM Fine-tuning & AI Agents",
+    title: "LLM Agents & Fine-tuning",
     description:
-      "Custom large language model fine-tuning using PEFT, LoRA, and QLoRA. Autonomous AI agents with memory, tool use, and long-horizon reasoning.",
-    stack: ["OpenAI", "LangChain", "LoRA", "PEFT", "Pinecone", "RAG"],
-    accent: "violet",
+      "Custom LLM fine-tuning with LoRA, PEFT, and QLoRA. Autonomous agents with persistent memory, multi-step reasoning, and tool use — deployed at production scale.",
+    highlights: ["RAG pipelines", "LoRA / QLoRA fine-tuning", "Autonomous agents"],
+    color: "text-violet-700",
+    lightBg: "bg-violet-50",
   },
   {
     icon: Globe,
-    title: "Full Stack Web Applications",
+    title: "Full-Stack Web Applications",
     description:
-      "High-performance web products from API design to pixel-perfect UI. We ship fast, scale effortlessly, and never compromise on quality.",
-    stack: ["Next.js", "React", "Node.js", "PostgreSQL", "Redis", "Docker"],
-    accent: "blue",
+      "High-performance web products from API architecture to pixel-perfect UI. We ship fast, scale effortlessly, and never compromise on code quality or reliability.",
+    highlights: ["Next.js & React", "REST & GraphQL APIs", "Cloud-native deployment"],
+    color: "text-blue-700",
+    lightBg: "bg-blue-50",
   },
   {
     icon: Smartphone,
     title: "Mobile App Development",
     description:
-      "Cross-platform and native iOS/Android apps with AI capabilities built in from day one. Performance-optimized, delightful to use.",
-    stack: ["Flutter", "React Native", "Swift", "Kotlin", "Firebase"],
-    accent: "emerald",
+      "Cross-platform and native iOS/Android apps with AI built into the foundation. Performance-optimised, offline-capable, and delightful to use from day one.",
+    highlights: ["Flutter & React Native", "On-device AI (Core ML)", "Offline-first architecture"],
+    color: "text-emerald-700",
+    lightBg: "bg-emerald-50",
   },
   {
     icon: Bot,
-    title: "Robotics & Automation Systems",
+    title: "Robotics & Automation",
     description:
-      "Intelligent robotics software, sensor fusion, computer vision, and autonomous control systems for physical-world automation.",
-    stack: ["ROS 2", "C++", "Python", "OpenCV", "SLAM", "CUDA"],
-    accent: "orange",
+      "Intelligent robotics software, sensor fusion, computer vision pipelines, and autonomous control systems that operate reliably in real-world environments.",
+    highlights: ["ROS 2 systems", "SLAM & path planning", "Computer vision"],
+    color: "text-orange-700",
+    lightBg: "bg-orange-50",
+  },
+  {
+    icon: Cpu,
+    title: "Cloud Infrastructure & DevOps",
+    description:
+      "Scalable cloud architecture, CI/CD pipelines, Kubernetes orchestration, and infrastructure-as-code designed for zero-downtime deployments at any scale.",
+    highlights: ["Kubernetes & Docker", "Terraform & AWS", "CI/CD automation"],
+    color: "text-sky-700",
+    lightBg: "bg-sky-50",
   },
 ];
 
-const accentMap: Record<string, { border: string; bg: string; icon: string; badge: string }> = {
-  cyan: {
-    border: "hover:border-cyan-500/30",
-    bg: "group-hover:bg-cyan-500/5",
-    icon: "bg-cyan-500/10 border-cyan-500/20 text-cyan-400",
-    badge: "bg-cyan-500/10 text-cyan-400 border-cyan-500/15",
-  },
-  violet: {
-    border: "hover:border-violet-500/30",
-    bg: "group-hover:bg-violet-500/5",
-    icon: "bg-violet-500/10 border-violet-500/20 text-violet-400",
-    badge: "bg-violet-500/10 text-violet-400 border-violet-500/15",
-  },
-  blue: {
-    border: "hover:border-blue-500/30",
-    bg: "group-hover:bg-blue-500/5",
-    icon: "bg-blue-500/10 border-blue-500/20 text-blue-400",
-    badge: "bg-blue-500/10 text-blue-400 border-blue-500/15",
-  },
-  emerald: {
-    border: "hover:border-emerald-500/30",
-    bg: "group-hover:bg-emerald-500/5",
-    icon: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400",
-    badge: "bg-emerald-500/10 text-emerald-400 border-emerald-500/15",
-  },
-  orange: {
-    border: "hover:border-orange-500/30",
-    bg: "group-hover:bg-orange-500/5",
-    icon: "bg-orange-500/10 border-orange-500/20 text-orange-400",
-    badge: "bg-orange-500/10 text-orange-400 border-orange-500/15",
-  },
-};
-
 export function Services() {
   return (
-    <section id="services" className="relative py-32 bg-[#020204]">
+    <section id="services" className="py-24 bg-slate-50">
       <div className="container-forge">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.55 }}
           className="text-center mb-16"
         >
           <div className="section-badge mb-5">What We Build</div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
-            Full-spectrum engineering
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+            Full-spectrum digital solutions
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            From model training to production systems — we cover every layer
-            of the modern tech stack with deep expertise.
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+            From model training to production infrastructure — we deliver across
+            every critical layer of the modern technology stack.
           </p>
         </motion.div>
 
-        {/* Services grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, i) => {
-            const colors = accentMap[service.accent];
             const Icon = service.icon;
             return (
               <motion.div
@@ -120,53 +101,33 @@ export function Services() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{
-                  delay: i * 0.08,
-                  duration: 0.6,
-                  ease: [0.21, 0.47, 0.32, 0.98],
-                }}
-                className={`group relative glass-card rounded-2xl p-6 transition-all duration-300 cursor-default ${colors.border}`}
-                style={
-                  i === 4
-                    ? { gridColumn: "1 / -1", maxWidth: "calc(66.666% - 8px)", margin: "0 auto" }
-                    : {}
-                }
+                transition={{ delay: i * 0.07, duration: 0.55, ease: [0.21, 0.47, 0.32, 0.98] }}
+                className="card p-6 rounded-2xl group cursor-default"
               >
-                {/* Hover bg tint */}
-                <div
-                  className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${colors.bg}`}
-                />
-
-                <div className="relative z-10">
-                  {/* Icon */}
-                  <div
-                    className={`inline-flex w-11 h-11 rounded-xl border items-center justify-center mb-5 ${colors.icon}`}
-                  >
-                    <Icon size={20} strokeWidth={1.5} />
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="font-semibold text-white text-lg mb-3 leading-snug">
-                    {service.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-slate-400 text-sm leading-relaxed mb-5">
-                    {service.description}
-                  </p>
-
-                  {/* Stack tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {service.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className={`text-xs px-2.5 py-1 rounded-full border ${colors.badge}`}
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                {/* Icon */}
+                <div className={`w-12 h-12 rounded-xl ${service.lightBg} flex items-center justify-center mb-5`}>
+                  <Icon size={22} className={service.color} strokeWidth={1.75} />
                 </div>
+
+                {/* Title */}
+                <h3 className="font-semibold text-slate-900 text-lg mb-2 leading-snug group-hover:text-green-700 transition-colors duration-200">
+                  {service.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                  {service.description}
+                </p>
+
+                {/* Highlights */}
+                <ul className="space-y-1.5">
+                  {service.highlights.map((h) => (
+                    <li key={h} className="flex items-center gap-2 text-sm text-slate-500">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 shrink-0" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             );
           })}

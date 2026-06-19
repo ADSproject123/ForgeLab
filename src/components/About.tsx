@@ -50,7 +50,7 @@ export function About() {
               >
                 Small team.
                 <br />
-                <span className="text-cyan-gradient">Elite engineering.</span>
+                <span className="text-green-gradient">Elite engineering.</span>
               </motion.h2>
 
               <motion.p
@@ -91,13 +91,13 @@ export function About() {
                 className="glass-card rounded-xl p-6 transition-all duration-300 group"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mt-0.5">
-                    <span className="text-cyan-400 font-bold text-xs">
+                  <div className="shrink-0 w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center mt-0.5">
+                    <span className="text-green-400 font-bold text-xs">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors">
+                    <h3 className="font-semibold text-white mb-2 group-hover:text-green-400 transition-colors">
                       {p.title}
                     </h3>
                     <p className="text-slate-400 text-sm leading-relaxed">
@@ -116,7 +116,7 @@ export function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.06] rounded-2xl overflow-hidden border border-white/[0.06]"
+          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/6 rounded-2xl overflow-hidden border border-white/6"
         >
           {[
             { value: "50+", label: "Projects Built" },
@@ -126,7 +126,7 @@ export function About() {
           ].map((s) => (
             <div
               key={s.label}
-              className="bg-[#020204] px-8 py-6 text-center hover:bg-white/[0.02] transition-colors"
+              className="bg-[#020204] px-8 py-6 text-center hover:bg-white/2 transition-colors"
             >
               <div className="text-3xl font-bold text-white mb-1">{s.value}</div>
               <div className="text-xs text-slate-500 uppercase tracking-wider">
