@@ -41,8 +41,7 @@ export function About() {
               variants={{ show: { transition: { staggerChildren: 0.1 } } }}
             >
               <motion.div variants={fadeUp}>
-                <div className="section-badge mb-6">About ForgeLab</div>
-              </motion.div>
+</motion.div>
 
               <motion.h2
                 variants={fadeUp}

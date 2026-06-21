@@ -56,7 +56,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="inline-block mb-5">
               <Image
-                src="/logo/logo.png"
+                src="/logo/logov2.png"
                 alt="ForgeLab"
                 width={140}
                 height={32}

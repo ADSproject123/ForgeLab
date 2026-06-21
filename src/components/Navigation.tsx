@@ -28,22 +28,22 @@ export function Navigation() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 overflow-visible ${
           scrolled
             ? "bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm"
-            : "bg-white/80 backdrop-blur-sm"
+            : "bg-transparent"
         }`}
       >
         <div className="container-forge">
-          <div className="h-28 flex items-center justify-between">
+          <div className="h-20 flex items-center justify-between overflow-visible">
             {/* Logo — white bg blends on light page */}
             <Link href="/" className="flex items-center group">
               <Image
-                src="/logo/logo.png"
+                src="/logo/logov2.png"
                 alt="ForgeLab"
-                width={440}
-                height={100}
-                className="h-20 w-auto object-contain transition-opacity duration-200 group-hover:opacity-80"
+                width={800}
+                height={186}
+                className="h-48 w-auto object-contain transition-opacity duration-200 group-hover:opacity-80"
                 priority
               />
             </Link>
@@ -100,7 +100,7 @@ export function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-28 left-0 right-0 z-40 bg-white border-b border-slate-100 shadow-lg md:hidden"
+            className="fixed top-20 left-0 right-0 z-40 bg-white border-b border-slate-100 shadow-lg md:hidden"
           >
             <div className="container-forge py-5 flex flex-col gap-1">
               {navLinks.map((link, i) => (

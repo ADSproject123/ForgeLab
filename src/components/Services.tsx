@@ -81,9 +81,8 @@ export function Services() {
           transition={{ duration: 0.55 }}
           className="text-center mb-16"
         >
-          <div className="section-badge mb-5">What We Build</div>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">
-            Full-spectrum digital solutions
+<h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+            Digital solutions we deliver
           </h2>
           <p className="text-slate-500 text-lg max-w-2xl mx-auto">
             From model training to production infrastructure — we deliver across

@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+/* ── Brand green remapped to logov2's #5cb800 ── */
+@theme {
+  --color-green-50:  #f2fce6;
+  --color-green-100: #e1f8c0;
+  --color-green-200: #c8f087;
+  --color-green-300: #a8e34a;
+  --color-green-400: #7ed800;
+  --color-green-500: #5cb800;
+  --color-green-600: #4a9800;
+  --color-green-700: #3a7d00;
+  --color-green-800: #2a5c00;
+  --color-green-900: #1a3d00;
+  --color-green-950: #0d2000;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -7,7 +22,7 @@ html {
 body {
   background: #ffffff;
   color: #0f172a;
-  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-titillium), system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -29,7 +44,7 @@ body {
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #22c55e;
+  background: #5cb800;
 }
 
 /* Subtle dot grid on light background */
@@ -45,9 +60,9 @@ body {
   background-size: 64px 64px;
 }
 
-/* Gradient text — brand green shimmer */
+/* Gradient text — matches logov2 "FORGE" green */
 .gradient-text {
-  background: linear-gradient(135deg, #15803d 0%, #22c55e 55%, #4ade80 100%);
+  background: linear-gradient(135deg, #3a7d00 0%, #5cb800 50%, #7ed800 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -57,7 +72,7 @@ body {
 
 /* Subtle green text */
 .text-green-gradient {
-  background: linear-gradient(135deg, #15803d, #22c55e);
+  background: linear-gradient(135deg, #3a7d00, #5cb800);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -72,8 +87,8 @@ body {
 }
 
 .card:hover {
-  border-color: #bbf7d0;
-  box-shadow: 0 8px 32px rgba(34, 197, 94, 0.1);
+  border-color: #b6e87a;
+  box-shadow: 0 8px 32px rgba(92, 184, 0, 0.12);
 }
 
 /* Section label badge */
@@ -83,9 +98,9 @@ body {
   gap: 6px;
   padding: 4px 12px;
   border-radius: 9999px;
-  border: 1px solid rgba(34, 197, 94, 0.4);
-  background: rgba(34, 197, 94, 0.08);
-  color: #16a34a;
+  border: 1px solid rgba(92, 184, 0, 0.4);
+  background: rgba(92, 184, 0, 0.08);
+  color: #3a7d00;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;

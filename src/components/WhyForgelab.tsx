@@ -56,8 +56,7 @@ export function WhyForgelab() {
           transition={{ duration: 0.55 }}
           className="text-center mb-14"
         >
-          <div className="section-badge mb-5">Why ForgeLab</div>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+<h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">
             The ForgeLab difference
           </h2>
           <p className="text-slate-500 text-lg max-w-xl mx-auto">
@@ -111,38 +110,34 @@ export function WhyForgelab() {
           })}
         </div>
 
-        {/* CTA strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.55 }}
-          className="mt-12 bg-slate-900 rounded-2xl p-10 md:p-14 text-center"
-          style={{
-            background: "linear-gradient(135deg, #0f172a 0%, #1a2e1a 100%)",
-          }}
-        >
-          <div className="section-badge mb-5 border-green-500/40 bg-green-500/10 text-green-400">
-            Ready to build something exceptional?
-          </div>
-          <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-            Let&apos;s make it happen.
-          </h3>
-          <p className="text-slate-400 max-w-md mx-auto mb-8 leading-relaxed">
-            Share your idea and we&apos;ll respond within 24 hours with honest
-            technical feedback and a clear path forward.
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-green-600 text-white text-sm font-semibold rounded-xl hover:bg-green-500 hover:shadow-lg transition-all duration-200"
-          >
-            Start a Project
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </a>
-        </motion.div>
       </div>
+
+      {/* CTA strip — full width */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.55 }}
+        className="mt-16 p-14 md:p-20 text-center"
+        style={{ background: "linear-gradient(135deg, #0f172a 0%, #1a2e1a 100%)" }}
+      >
+        <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+          Let&apos;s make it happen.
+        </h3>
+        <p className="text-slate-400 max-w-md mx-auto mb-8 leading-relaxed">
+          Share your idea and we&apos;ll respond within 24 hours with honest
+          technical feedback and a clear path forward.
+        </p>
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-2 px-8 py-3.5 bg-green-600 text-white text-sm font-semibold rounded-xl hover:bg-green-500 hover:shadow-lg transition-all duration-200"
+        >
+          Start a Project
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </a>
+      </motion.div>
     </section>
   );
 }

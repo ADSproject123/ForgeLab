@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 
 const clients = [
   { name: "FinFlow", subtitle: "FinTech" },
@@ -19,17 +18,6 @@ const track = [...clients, ...clients];
 export function Clients() {
   return (
     <section className="py-14 bg-slate-50 border-y border-slate-100 overflow-hidden">
-      <div className="container-forge mb-8">
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center text-sm font-semibold text-slate-400 uppercase tracking-widest"
-        >
-          Trusted by teams at leading companies
-        </motion.p>
-      </div>
 
       {/* Marquee */}
       <div className="relative">

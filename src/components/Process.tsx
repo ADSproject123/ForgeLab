@@ -52,8 +52,7 @@ export function Process() {
           transition={{ duration: 0.55 }}
           className="text-center mb-20"
         >
-          <div className="section-badge mb-5">How We Work</div>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">
+<h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">
             From zero to production
           </h2>
           <p className="text-slate-500 text-lg max-w-xl mx-auto">

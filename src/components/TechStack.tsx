@@ -2,95 +2,77 @@
 
 import { motion } from "framer-motion";
 import {
-  Code2, Flame, Layers, BarChart3, Cpu, Smile, Activity, Link,
-  Triangle, Atom, Server, Zap, Share2, Database, Layers2, FileCode,
-  Smartphone, MonitorSmartphone, Brain,
-  Package, Settings2, Cloud, Building2, GitBranch, Globe,
-  Bot, Terminal, Eye, Map, CircuitBoard, Scan,
+  ShoppingCart, Smartphone, Monitor, BarChart3, Bot,
+  CreditCard, Package, Calendar, Users, Globe, Warehouse, Megaphone,
   type LucideIcon,
 } from "lucide-react";
 
-interface TechItem {
-  name: string;
+interface Solution {
   icon: LucideIcon;
+  title: string;
+  description: string;
 }
 
-interface TechGroup {
-  category: string;
-  items: TechItem[];
-  accent: string;
-  lightBg: string;
-}
-
-const techGroups: TechGroup[] = [
+const solutions: Solution[] = [
   {
-    category: "AI / ML",
-    accent: "text-green-700",
-    lightBg: "bg-green-50 border-green-200",
-    items: [
-      { name: "Python",       icon: Code2 },
-      { name: "PyTorch",      icon: Flame },
-      { name: "TensorFlow",   icon: Layers },
-      { name: "scikit-learn", icon: BarChart3 },
-      { name: "CUDA",         icon: Cpu },
-      { name: "Hugging Face", icon: Smile },
-      { name: "MLflow",       icon: Activity },
-      { name: "LangChain",    icon: Link },
-    ],
+    icon: ShoppingCart,
+    title: "E-Commerce Platform",
+    description: "Full-featured online stores with product management, payments, and order tracking.",
   },
   {
-    category: "Web & API",
-    accent: "text-violet-700",
-    lightBg: "bg-violet-50 border-violet-200",
-    items: [
-      { name: "Next.js",    icon: Triangle },
-      { name: "React",      icon: Atom },
-      { name: "Node.js",    icon: Server },
-      { name: "FastAPI",    icon: Zap },
-      { name: "GraphQL",    icon: Share2 },
-      { name: "PostgreSQL", icon: Database },
-      { name: "Redis",      icon: Layers2 },
-      { name: "TypeScript", icon: FileCode },
-    ],
+    icon: Smartphone,
+    title: "Mobile Application",
+    description: "Native and cross-platform iOS & Android apps built for performance and scale.",
   },
   {
-    category: "Mobile",
-    accent: "text-emerald-700",
-    lightBg: "bg-emerald-50 border-emerald-200",
-    items: [
-      { name: "Flutter",      icon: Smartphone },
-      { name: "React Native", icon: MonitorSmartphone },
-      { name: "Swift",        icon: Zap },
-      { name: "Kotlin",       icon: Code2 },
-      { name: "Core ML",      icon: Brain },
-      { name: "Firebase",     icon: Flame },
-    ],
+    icon: CreditCard,
+    title: "POS System",
+    description: "Point-of-sale systems for retail and restaurants with inventory and reporting.",
   },
   {
-    category: "Infrastructure",
-    accent: "text-orange-700",
-    lightBg: "bg-orange-50 border-orange-200",
-    items: [
-      { name: "Docker",         icon: Package },
-      { name: "Kubernetes",     icon: Settings2 },
-      { name: "AWS",            icon: Cloud },
-      { name: "Terraform",      icon: Building2 },
-      { name: "GitHub Actions", icon: GitBranch },
-      { name: "Nginx",          icon: Globe },
-    ],
+    icon: Monitor,
+    title: "Web Application",
+    description: "Custom web platforms, dashboards, and internal tools tailored to your business.",
   },
   {
-    category: "Robotics",
-    accent: "text-rose-700",
-    lightBg: "bg-rose-50 border-rose-200",
-    items: [
-      { name: "ROS 2",   icon: Bot },
-      { name: "C++",     icon: Terminal },
-      { name: "OpenCV",  icon: Eye },
-      { name: "SLAM",    icon: Map },
-      { name: "Arduino", icon: CircuitBoard },
-      { name: "LIDAR",   icon: Scan },
-    ],
+    icon: Bot,
+    title: "AI & Chatbot Solution",
+    description: "Intelligent chatbots and AI assistants that automate customer support and sales.",
+  },
+  {
+    icon: BarChart3,
+    title: "Analytics Dashboard",
+    description: "Real-time data dashboards that turn your business data into actionable insights.",
+  },
+  {
+    icon: Package,
+    title: "Inventory Management",
+    description: "Smart inventory systems with real-time stock tracking and automated reordering.",
+  },
+  {
+    icon: Users,
+    title: "CRM System",
+    description: "Customer relationship management tools to grow and retain your client base.",
+  },
+  {
+    icon: Calendar,
+    title: "Booking & Reservation",
+    description: "Online booking platforms for appointments, events, and service scheduling.",
+  },
+  {
+    icon: Globe,
+    title: "Company Website",
+    description: "Professional, fast-loading websites that represent your brand and convert visitors.",
+  },
+  {
+    icon: Warehouse,
+    title: "ERP System",
+    description: "Integrated enterprise resource planning to streamline operations across departments.",
+  },
+  {
+    icon: Megaphone,
+    title: "Digital Marketing Tools",
+    description: "Campaign management, email automation, and analytics to grow your audience.",
   },
 ];
 
@@ -106,54 +88,42 @@ export function TechStack() {
           transition={{ duration: 0.55 }}
           className="text-center mb-16"
         >
-          <div className="section-badge mb-5">Technology</div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">
-            Built with the right tools
+            Digital solutions we deliver
           </h2>
           <p className="text-slate-500 text-lg max-w-xl mx-auto">
-            We choose technology based on the problem, not trends — proven
-            tools used by the best engineering teams in the world.
+            From POS systems to AI-powered apps — we build the right solution
+            for your business, whatever the industry.
           </p>
         </motion.div>
 
-        {/* Groups */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {techGroups.map((group, gi) => (
-            <motion.div
-              key={group.category}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ delay: gi * 0.08, duration: 0.55, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className={`card rounded-2xl p-6 ${gi === 4 ? "lg:col-span-1 md:col-span-2 lg:col-start-2" : ""}`}
-            >
-              {/* Category label */}
-              <div className={`inline-block text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full border mb-5 ${group.lightBg} ${group.accent}`}>
-                {group.category}
-              </div>
-
-              {/* Items */}
-              <div className="flex flex-wrap gap-2">
-                {group.items.map((item, ii) => {
-                  const Icon = item.icon;
-                  return (
-                    <motion.div
-                      key={item.name}
-                      initial={{ opacity: 0, scale: 0.85 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: gi * 0.05 + ii * 0.04, duration: 0.35 }}
-                      whileHover={{ scale: 1.05 }}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 hover:border-green-300 hover:bg-green-50 transition-all duration-200 cursor-default"
-                    >
-                      <Icon size={14} strokeWidth={1.75} className="text-slate-400 shrink-0" />
-                      <span className="text-sm text-slate-600 font-medium">{item.name}</span>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </motion.div>
-          ))}
+        {/* Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {solutions.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <motion.div
+                key={s.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ delay: i * 0.05, duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+                className="card p-6 rounded-2xl group cursor-default flex gap-4 items-start"
+              >
+                <div className="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center shrink-0 group-hover:bg-green-100 transition-colors duration-200">
+                  <Icon size={22} className="text-green-600" strokeWidth={1.75} />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-slate-900 mb-1.5 group-hover:text-green-700 transition-colors duration-200">
+                    {s.title}
+                  </h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">
+                    {s.description}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
