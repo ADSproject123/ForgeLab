@@ -1,12 +1,17 @@
-"use client";
+import { Mail, MapPin } from "lucide-react";
 
-import Link from "next/link";
-import Image from "next/image";
-
-function IconGitHub({ size = 16 }: { size?: number }) {
+function IconFacebook({ size = 16 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+      <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z" />
+    </svg>
+  );
+}
+
+function IconTelegram({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
     </svg>
   );
 }
@@ -19,108 +24,97 @@ function IconLinkedIn({ size = 16 }: { size?: number }) {
   );
 }
 
-function IconX({ size = 16 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  );
-}
+const navLinks = [
+  { label: "Services", href: "#services" },
+  { label: "Work", href: "#projects" },
+  { label: "Process", href: "#process" },
+  { label: "Stack", href: "#stack" },
+  { label: "Contact", href: "#contact" },
+];
 
-const footerLinks = {
-  Services: [
-    "AI & Machine Learning",
-    "LLM Fine-tuning",
-    "Web Applications",
-    "Mobile Apps",
-    "Robotics",
-    "Cloud Infrastructure",
-  ],
-  Company: ["About", "Case Studies", "Process", "Tech Stack"],
-  Resources: ["hello@forgelab.cam", "Start a Project", "Partnerships"],
-};
-
-const socialLinks = [
-  { label: "GitHub",      href: "#", Icon: IconGitHub },
-  { label: "LinkedIn",    href: "#", Icon: IconLinkedIn },
-  { label: "X / Twitter", href: "#", Icon: IconX },
+const socials = [
+  { label: "Facebook", href: "https://facebook.com/forgelab", Icon: IconFacebook },
+  { label: "Telegram", href: "https://t.me/forgelab", Icon: IconTelegram },
+  { label: "LinkedIn", href: "https://linkedin.com/company/forgelab", Icon: IconLinkedIn },
 ];
 
 export function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="bg-slate-900 text-white">
-      <div className="container-forge py-16">
-        {/* Main grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 mb-14">
-          {/* Brand column */}
-          <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="inline-block mb-5">
-              <Image
-                src="/logo/logov2.png"
-                alt="ForgeLab"
-                width={140}
-                height={32}
-                className="h-8 w-auto object-contain"
-              />
-            </Link>
-            <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs">
-              Elite engineering studio delivering AI systems, intelligent
-              applications, and high-performance software for teams that
-              refuse to settle for ordinary.
+    <footer className="relative z-10 -mt-10 rounded-t-4xl bg-slate-50 shadow-[0_-8px_40px_rgba(15,23,42,0.04)]">
+      <div className="container-forge pt-16 pb-10 md:pt-20 md:pb-12">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-16">
+          <div>
+            <p className="max-w-xs text-sm leading-relaxed text-slate-500">
+              Elite engineering studio building AI-native products from Phnom
+              Penh — shipped fast, built to last.
             </p>
-            {/* Socials */}
-            <div className="flex gap-3">
-              {socialLinks.map(({ label, href, Icon }) => (
+          </div>
+
+          <nav aria-label="Footer navigation">
+            <p className="mb-4 text-sm font-semibold text-slate-900">Company</p>
+            <ul className="grid grid-cols-2 gap-x-6 gap-y-2.5">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-sm text-slate-500 transition-colors hover:text-green-700"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div>
+            <p className="mb-4 text-sm font-semibold text-slate-900">Connect</p>
+            <ul className="space-y-3">
+              <li>
+                <a
+                  href="mailto:hello@forgelab.cam"
+                  className="inline-flex items-center gap-2.5 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:border-green-300 hover:text-green-700"
+                >
+                  <Mail size={15} className="shrink-0 text-green-600" aria-hidden="true" />
+                  hello@forgelab.cam
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5 px-1 text-sm text-slate-500">
+                <MapPin size={15} className="shrink-0 text-green-600" aria-hidden="true" />
+                Phnom Penh, Cambodia
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-14 flex flex-col gap-5 border-t border-slate-200 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-slate-400">
+            &copy; {year} ForgeLab. All rights reserved.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <div className="flex gap-2">
+              {socials.map(({ label, href, Icon }) => (
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 hover:bg-slate-700 transition-all duration-200"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 transition-all duration-200 hover:border-green-300 hover:text-green-700"
                 >
-                  <Icon size={15} />
+                  <Icon />
                 </a>
               ))}
             </div>
-          </div>
-
-          {/* Link groups */}
-          {Object.entries(footerLinks).map(([group, links]) => (
-            <div key={group}>
-              <div className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-5">
-                {group}
-              </div>
-              <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href={link === "hello@forgelab.cam" ? "mailto:hello@forgelab.cam" : "#"}
-                      className="text-slate-400 text-sm hover:text-white transition-colors duration-200"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-slate-800">
-          <p className="text-slate-500 text-sm">
-            © {new Date().getFullYear()} ForgeLab. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
+            <span className="hidden h-4 w-px bg-slate-200 sm:block" aria-hidden="true" />
             <a
               href="https://forgelab.cam"
-              className="text-sm text-slate-500 hover:text-slate-300 transition-colors font-mono"
+              className="text-sm font-medium text-slate-500 transition-colors hover:text-green-700"
             >
               forgelab.cam
             </a>
-            <div className="flex items-center gap-1.5 text-xs text-slate-600">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-              All systems operational
-            </div>
           </div>
         </div>
       </div>

@@ -1,130 +1,162 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ShoppingCart, Smartphone, Monitor, BarChart3, Bot,
-  CreditCard, Package, Calendar, Users, Globe, Warehouse, Megaphone,
-  type LucideIcon,
-} from "lucide-react";
+import Image from "next/image";
+import { ProcessTimeline } from "@/components/ProcessTimeline";
 
 interface Solution {
-  icon: LucideIcon;
   title: string;
   description: string;
+  image: string;
 }
 
 const solutions: Solution[] = [
   {
-    icon: ShoppingCart,
     title: "E-Commerce Platform",
-    description: "Full-featured online stores with product management, payments, and order tracking.",
+    description:
+      "Full-featured online stores with product management, payments, and order tracking.",
+    image: "/solutions/ecommerce.jpg",
   },
   {
-    icon: Smartphone,
     title: "Mobile Application",
-    description: "Native and cross-platform iOS & Android apps built for performance and scale.",
+    description:
+      "Native and cross-platform iOS & Android apps built for performance and scale.",
+    image: "/solutions/mobile-app.jpg",
   },
   {
-    icon: CreditCard,
     title: "POS System",
-    description: "Point-of-sale systems for retail and restaurants with inventory and reporting.",
+    description:
+      "Point-of-sale systems for retail and restaurants with inventory and reporting.",
+    image: "/solutions/pos-system.jpg",
   },
   {
-    icon: Monitor,
     title: "Web Application",
-    description: "Custom web platforms, dashboards, and internal tools tailored to your business.",
+    description:
+      "Custom web platforms, dashboards, and internal tools tailored to your business.",
+    image: "/solutions/web-application.jpg",
   },
   {
-    icon: Bot,
     title: "AI & Chatbot Solution",
-    description: "Intelligent chatbots and AI assistants that automate customer support and sales.",
+    description:
+      "Intelligent chatbots and AI assistants that automate customer support and sales.",
+    image: "/solutions/ai-chatbot.jpg",
   },
   {
-    icon: BarChart3,
     title: "Analytics Dashboard",
-    description: "Real-time data dashboards that turn your business data into actionable insights.",
+    description:
+      "Real-time data dashboards that turn your business data into actionable insights.",
+    image: "/solutions/analytics-dashboard.jpg",
   },
   {
-    icon: Package,
     title: "Inventory Management",
-    description: "Smart inventory systems with real-time stock tracking and automated reordering.",
+    description:
+      "Smart inventory systems with real-time stock tracking and automated reordering.",
+    image: "/solutions/inventory-management.jpg",
   },
   {
-    icon: Users,
     title: "CRM System",
-    description: "Customer relationship management tools to grow and retain your client base.",
+    description:
+      "Customer relationship management tools to grow and retain your client base.",
+    image: "/solutions/crm-system.jpg",
   },
   {
-    icon: Calendar,
     title: "Booking & Reservation",
-    description: "Online booking platforms for appointments, events, and service scheduling.",
+    description:
+      "Online booking platforms for appointments, events, and service scheduling.",
+    image: "/solutions/booking-reservation.jpg",
   },
   {
-    icon: Globe,
     title: "Company Website",
-    description: "Professional, fast-loading websites that represent your brand and convert visitors.",
+    description:
+      "Professional, fast-loading websites that represent your brand and convert visitors.",
+    image: "/solutions/company-website.jpg",
   },
   {
-    icon: Warehouse,
     title: "ERP System",
-    description: "Integrated enterprise resource planning to streamline operations across departments.",
+    description:
+      "Integrated enterprise resource planning to streamline operations across departments.",
+    image: "/solutions/erp-system.jpg",
   },
   {
-    icon: Megaphone,
     title: "Digital Marketing Tools",
-    description: "Campaign management, email automation, and analytics to grow your audience.",
+    description:
+      "Campaign management, email automation, and analytics to grow your audience.",
+    image: "/solutions/digital-marketing.jpg",
   },
 ];
 
+const track = [...solutions, ...solutions];
+
+function SolutionCard({ solution }: { solution: Solution }) {
+  return (
+    <article className="group card w-[300px] sm:w-[340px] shrink-0 rounded-2xl overflow-hidden cursor-default flex flex-col">
+      <div className="relative aspect-[16/10] overflow-hidden">
+        <Image
+          src={solution.image}
+          alt={solution.title}
+          fill
+          sizes="340px"
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent" />
+        <h3 className="absolute bottom-4 left-4 right-4 font-semibold text-white text-base leading-snug drop-shadow-sm">
+          {solution.title}
+        </h3>
+      </div>
+
+      <div className="p-4">
+        <p className="text-slate-500 text-sm leading-relaxed line-clamp-2">
+          {solution.description}
+        </p>
+      </div>
+    </article>
+  );
+}
+
 export function TechStack() {
   return (
-    <section id="stack" className="py-24 bg-slate-50">
-      <div className="container-forge">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.55 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight mb-4">
-            Digital solutions we deliver
-          </h2>
-          <p className="text-slate-500 text-lg max-w-xl mx-auto">
-            From POS systems to AI-powered apps — we build the right solution
-            for your business, whatever the industry.
-          </p>
-        </motion.div>
+    <section
+      id="stack"
+      className="relative w-full bg-slate-50 overflow-x-hidden py-16 lg:py-20"
+    >
+      <div className="flex flex-col gap-14 lg:gap-16">
+        {/* Solutions */}
+        <div>
+          <div className="container-forge">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.55 }}
+              className="text-center mb-10"
+            >
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight mb-3">
+                Digital solutions we deliver
+              </h2>
+              <p className="text-slate-500 text-base md:text-lg max-w-xl mx-auto">
+                From POS systems to AI-powered apps — we build the right solution
+                for your business, whatever the industry.
+              </p>
+            </motion.div>
+          </div>
 
-        {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {solutions.map((s, i) => {
-            const Icon = s.icon;
-            return (
-              <motion.div
-                key={s.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ delay: i * 0.05, duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
-                className="card p-6 rounded-2xl group cursor-default flex gap-4 items-start"
-              >
-                <div className="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center shrink-0 group-hover:bg-green-100 transition-colors duration-200">
-                  <Icon size={22} className="text-green-600" strokeWidth={1.75} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-slate-900 mb-1.5 group-hover:text-green-700 transition-colors duration-200">
-                    {s.title}
-                  </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    {s.description}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
+          <div className="relative">
+            <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-linear-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-linear-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+
+            <div className="solutions-marquee-track pl-6">
+              {track.map((solution, i) => (
+                <SolutionCard key={`${solution.title}-${i}`} solution={solution} />
+              ))}
+            </div>
+          </div>
         </div>
+
+        <div className="container-forge">
+          <div className="h-px bg-slate-200" />
+        </div>
+
+        <ProcessTimeline />
       </div>
     </section>
   );
